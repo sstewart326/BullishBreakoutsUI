@@ -23,9 +23,10 @@ export class IdeasComponent implements OnInit {
 
   onUpload() {
     const formData = new FormData();
-    formData.append('screenshot', this.selectedFile, this.selectedFile.name);
-    this.httpClient.post('url', formData).subscribe(res => {
-      
+    formData.append('fileName', this.selectedFile, this.selectedFile.name);
+    this.httpClient.post('http://localhost:8090/upload-file', formData).subscribe(res => {
+      console.log(res);    }, err => {
+      console.log(err);
     });
   }
 
