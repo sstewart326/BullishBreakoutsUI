@@ -1,2 +1,5 @@
-<input type="file" (change)="onFileSelected($event)">
-<button type="button" (click)="onUpload()">Submit</button>
+<div class="imageContent" *ngIf="images">
+    <li *ngFor="let image of images.imageSet">
+        <img src="http://localhost:8090/rest/1.0/download-file?fileName={{image.name}}"/>
+    </li>
+</div>

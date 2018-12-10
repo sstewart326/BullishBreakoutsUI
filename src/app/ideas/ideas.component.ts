@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Sanitizer } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ImageLocationsResponse } from '../models/image-locations-response';
+import { ImageSet } from '../models/image-set';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ideas',
@@ -8,26 +11,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class IdeasComponent implements OnInit {
 
-  selectedFile: File = null;
+  images: ImageLocationsResponse;
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private sanitizer: Sanitizer
   ) { }
 
   ngOnInit() {
+    this.getImageLocations();
   }
 
-  onFileSelected(event) {
-    this.selectedFile = <File>event.target.files[0];
-  }
-
-  onUpload() {
-    const formData = new FormData();
-    formData.append('fileName', this.selectedFile, this.selectedFile.name);
-    this.httpClient.post('http://localhost:8090/upload-file', formData).subscribe(res => {
-      console.log(res);    }, err => {
-      console.log(err);
-    });
+  getImageLocations = () => {
+    this.httpClient.get<ImageLocationsResponse>('http://localhost:8090/rest/1.0/get-image-locations').subscribe(
+      response => {
+        this.images = response;
+      }, 
+      err => {
+        console.log(err)
+      });
   }
 
 }
