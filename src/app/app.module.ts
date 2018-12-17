@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { MatIconModule } from "@angular/material/icon";
 
+import { DeferLoadModule } from '@trademe/ng-defer-load';
+
 import { AppComponent } from './app.component';
 import { IdeasComponent } from './ideas/ideas.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,7 +18,8 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    DeferLoadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

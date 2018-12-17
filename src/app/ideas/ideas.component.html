@@ -1,5 +1,7 @@
-<div class="imageContent" *ngIf="images">
-    <li *ngFor="let image of images.imageSet">
-        <img src="http://localhost:8090/rest/1.0/download-file?fileName={{image.name}}"/>
-    </li>
+<div *ngIf="images">
+    <div *ngFor="let image of images.imageSet" (deferLoad)="image.show=true">
+        <ng-container class="images" *ngIf="image.show">
+            <img src="http://localhost:8090/rest/1.0/download-file?fileName={{image.name}}" class="image"/>
+        </ng-container>
+    </div>
 </div>

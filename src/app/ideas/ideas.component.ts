@@ -15,10 +15,11 @@ export class IdeasComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
-    private sanitizer: Sanitizer
+    private sanitizer: Sanitizer,
   ) { }
 
   ngOnInit() {
+    window.scrollTo(0,100);
     this.getImageLocations();
   }
 
