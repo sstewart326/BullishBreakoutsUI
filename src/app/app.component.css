@@ -1,7 +1,6 @@
   #header {
     display: grid;
     grid-template-columns: 100%;
-    grid-auto-rows: 75px;
     background-color: rgb(10, 71, 112)
   }
   #body { 
