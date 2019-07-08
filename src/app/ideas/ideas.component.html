@@ -1,7 +1,3 @@
-<div *ngIf="images">
-    <div class="images" *ngFor="let image of images.imageSet" (deferLoad)="image.show=true">
-        <ng-container *ngIf="image.show">
-            <img src="http://localhost:8090/rest/1.0/download-file?fileName={{image.name}}" class="image"/>
-        </ng-container>
-    </div>
+<div id="centerImage">
+  <chart></chart>
 </div>

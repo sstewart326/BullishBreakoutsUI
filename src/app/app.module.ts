@@ -6,20 +6,20 @@ import { MatIconModule } from "@angular/material/icon";
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 
 import { AppComponent } from './app.component';
-import { IdeasComponent } from './ideas/ideas.component';
 import { HeaderComponent } from './header/header.component';
+import {IdeasModule} from "./ideas/ideas.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    IdeasComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     MatIconModule,
     HttpClientModule,
-    DeferLoadModule
+    DeferLoadModule,
+    IdeasModule
   ],
   providers: [],
   bootstrap: [AppComponent]
