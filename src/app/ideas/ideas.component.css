@@ -1,6 +1,21 @@
-#centerImage {
-  display: grid;
-  justify-content: center;
-  background-color: rgb(247, 247, 247);
+.charts {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.chart {
+  height: 400px;
+  width: auto;
   padding: 1em;
+}
+
+#ideas {
+  display:grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+#ideas .border-section {
+  background-color:rgb(247, 247, 247);
 }

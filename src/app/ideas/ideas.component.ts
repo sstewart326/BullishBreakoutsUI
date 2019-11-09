@@ -1,8 +1,6 @@
-import { Component, OnInit, Sanitizer } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ImageLocationsResponse } from '../models/image-locations-response';
-import { ImageSet } from '../models/image-set';
-import { Observable } from 'rxjs';
+import { Component, HostListener, OnInit } from '@angular/core';
+
+declare const TradingView: any;
 
 @Component({
   selector: 'ideas',
@@ -11,26 +9,49 @@ import { Observable } from 'rxjs';
 })
 export class IdeasComponent implements OnInit {
 
-  images: ImageLocationsResponse;
+  showMyElement: boolean;
 
   constructor(
-    private httpClient: HttpClient,
-    private sanitizer: Sanitizer,
   ) { }
 
-  ngOnInit() {
-    window.scrollTo(0,100);
-    this.getImageLocations();
+
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event){
+    // console.log('offsetheight: ' + $event.target.documentElement.offsetHeight)
+    // console.log('scrollTop: ' + $event.target.documentElement.scrollTop)
+    // console.log('scrollHeight: ' + $event.target.documentElement.scrollHeight)
+    // console.log('clientHeight: ' + $event.target.documentElement.clientHeight)
+    //
+    // console.log($event)
+    if ($event.target.documentElement.clientHeight < $event.target.documentElement.scrollTop) {
+      console.log("End");
+    }
   }
 
-  getImageLocations = () => {
-    this.httpClient.get<ImageLocationsResponse>('http://localhost:8090/rest/1.0/get-image-locations').subscribe(
-      response => {
-        this.images = response;
-      }, 
-      err => {
-        console.log(err)
-      });
+  ngOnInit() {
+    document.documentElement.offsetHeight
+    //TODO only load when in view.. driven by component; not html
+    const element = new TradingView.chart({
+      'container_id': 'chart',
+      'chart': '1tow4LOg',
+      'autosize': true
+    })
+    console.log(element)
+    new TradingView.chart({
+      'container_id': 'chart1',
+      'chart': '1tow4LOg',
+      'autosize': true
+    })
+    new TradingView.chart({
+      'container_id': 'chart2',
+      'chart': '1tow4LOg',
+      'autosize': true
+    })
+    new TradingView.chart({
+      'container_id': 'chart3',
+      'chart': '1tow4LOg',
+      'autosize': true
+    })
+
   }
 
 }
