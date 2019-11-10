@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ChartService} from "./services/chart.service";
-import {Chart} from "./ideas/chart/chart";
+import {Charts} from "./ideas/chart/charts";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import {Chart} from "./ideas/chart/chart";
 export class AppComponent implements OnInit {
 
   title = 'bullified-breakouts';
-  charts: Chart[]
+  charts: Charts
 
   constructor(private chartService: ChartService) {}
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IdeasComponent } from './ideas.component';
 import {DirectivesModule} from "../directives/directives.module";
-import {ChartComponent} from "./chart/chart.component";
+import {ChartsComponent} from "./chart/charts.component";
 
 @NgModule({
   imports: [
@@ -10,8 +10,8 @@ import {ChartComponent} from "./chart/chart.component";
     DirectivesModule
   ],
   providers: [ ],
-  declarations: [ IdeasComponent, ChartComponent ],
-  entryComponents: [ ChartComponent ],
+  declarations: [ IdeasComponent, ChartsComponent ],
+  entryComponents: [ ChartsComponent ],
   exports: [ IdeasComponent ]
 })
 export class IdeasModule { }
