@@ -6,11 +6,12 @@ import { MatIconModule } from "@angular/material/icon";
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {IdeasModule} from "./ideas/ideas.module";
+import {ChartService} from "./services/chart.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +19,7 @@ import {IdeasModule} from "./ideas/ideas.module";
     HttpClientModule,
     IdeasModule
   ],
-  providers: [],
+  providers: [ ChartService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

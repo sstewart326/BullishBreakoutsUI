@@ -1,15 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input} from "@angular/core";
 
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  template: `
+    <div id="{{data.id}}" class="chart"></div>
+  `
 })
-export class ChartComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class ChartComponent {
+  @Input() data: any;
 }
