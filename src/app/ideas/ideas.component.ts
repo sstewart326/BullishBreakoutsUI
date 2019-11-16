@@ -32,27 +32,7 @@ export class IdeasComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const element = new TradingView.chart({
-      'container_id': 'chart',
-      'chart': '1tow4LOg',
-      'autosize': true
-    })
-    console.log(element)
-    new TradingView.chart({
-      'container_id': 'chart1',
-      'chart': '1tow4LOg',
-      'autosize': true
-    })
-    new TradingView.chart({
-      'container_id': 'chart2',
-      'chart': '1tow4LOg',
-      'autosize': true
-    })
-    new TradingView.chart({
-      'container_id': 'chart3',
-      'chart': '1tow4LOg',
-      'autosize': true
-    })
+    this.displayMoreCharts(0,3)
   }
 
   loadComponent(charts: Charts) {
@@ -62,6 +42,19 @@ export class IdeasComponent implements OnInit, AfterViewInit {
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
     (<ChartsComponent>componentRef.instance).data = charts.data;
+  }
+
+  displayMoreCharts(fromIndex: number, toIndex: number) {
+
+    for ( let i = fromIndex; i<= toIndex; i++) {
+      const datum = this.charts.data[i]
+      new TradingView.chart({
+        'container_id': datum.id,
+        'chart': datum.chartId,
+        'autosize': true
+      })
+    }
+
   }
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event){
