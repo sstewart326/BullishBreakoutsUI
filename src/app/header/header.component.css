@@ -6,7 +6,7 @@
   height: 175px;
 }
 
-#header-content .bg-image {
+.bg-image {
   position: absolute;
   background: #333 url('../../assets/images/header-pic.jpg') no-repeat center;
   background-size: cover;
@@ -16,11 +16,18 @@
   z-index: 1;
 }
 
-#header-content .logo {
-  position: absolute;
-  width: auto;
-  height: auto;
-  left: 42%;
-  top: -30%;
+.logo {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -3%;
   z-index: 3;
+}
+
+@media(max-width: 700px) {
+
+  .logo {
+    margin-top: -8%;
+  }
+
 }

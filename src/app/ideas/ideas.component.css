@@ -13,3 +13,18 @@
 #ideas .border-section {
   background-color:rgb(247, 247, 247);
 }
+
+@media(max-width: 700px) {
+  .border-section {
+    display: none;
+  }
+
+  #ideas {
+    display: block;
+    width: 100%;
+  }
+
+  .charts {
+    width: 97%;
+  }
+}
