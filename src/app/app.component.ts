@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ChartService} from "./services/chart.service";
 import {Charts} from "./ideas/chart/charts";
 
@@ -10,11 +10,10 @@ import {Charts} from "./ideas/chart/charts";
 export class AppComponent implements OnInit {
 
   title = 'bullified-breakouts';
-  charts: Charts
 
   constructor(private chartService: ChartService) {}
 
   ngOnInit() {
-    this.charts = this.chartService.getCharts()
   }
+
 }

@@ -10,6 +10,7 @@ import {
 import {Charts} from "./chart/charts";
 import {ChartDirective} from "../directives/chart.directive";
 import {ChartsComponent} from "./chart/charts.component";
+import {ChartService} from "../services/chart.service";
 
 declare const TradingView: any;
 
@@ -20,52 +21,46 @@ declare const TradingView: any;
 })
 export class IdeasComponent implements OnInit, AfterViewInit {
 
-  @Input() charts: Charts;
   @ViewChild(ChartDirective, {static: true}) chartHost: ChartDirective;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  charts: Charts;
+  chartComponent: ChartsComponent
+  chartsToShow = 5
+
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+              private chartService: ChartService) { }
 
   ngOnInit() {
-    this.loadComponent(this.charts)
-    document.documentElement.offsetHeight
-    //TODO only load when in view.. driven by component; not html
+    this.charts = this.chartService.getCharts()
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.charts.component);
+    const viewContainerRef = this.chartHost.viewContainerRef;
+    const componentRef = viewContainerRef.createComponent(componentFactory);
+    this.chartComponent = <ChartsComponent>componentRef.instance
+    this.chartComponent.data = this.charts.data;
   }
 
   ngAfterViewInit() {
-    this.displayMoreCharts(0,3)
+    this.displayMoreCharts(0)
   }
 
-  loadComponent(charts: Charts) {
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(charts.component);
-
-    const viewContainerRef = this.chartHost.viewContainerRef;
-
-    const componentRef = viewContainerRef.createComponent(componentFactory);
-    (<ChartsComponent>componentRef.instance).data = charts.data;
-  }
-
-  displayMoreCharts(fromIndex: number, toIndex: number) {
-
+  displayMoreCharts(fromIndex: number) {
+    const toIndex = fromIndex + this.chartsToShow - 1
     for ( let i = fromIndex; i<= toIndex; i++) {
+      if (i > this.charts.data.length - 1) return
       const datum = this.charts.data[i]
       new TradingView.chart({
         'container_id': datum.id,
         'chart': datum.chartId,
         'autosize': true
       })
+      this.chartComponent.chartsLoaded = toIndex + 1
     }
-
   }
 
-  @HostListener('window:scroll', ['$event']) onScrollEvent($event){
-    // console.log('offsetheight: ' + $event.target.documentElement.offsetHeight)
-    // console.log('scrollTop: ' + $event.target.documentElement.scrollTop)
-    // console.log('scrollHeight: ' + $event.target.documentElement.scrollHeight)
-    // console.log('clientHeight: ' + $event.target.documentElement.clientHeight)
-    //
-    // console.log($event)
-    if ($event.target.documentElement.clientHeight < $event.target.documentElement.scrollTop) {
-      console.log("End");
+  @HostListener("window:scroll", [])
+  onScroll(): void {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      this.displayMoreCharts( this.chartComponent.chartsLoaded )
     }
   }
 

@@ -19,7 +19,7 @@ import {ChartService} from "./services/chart.service";
     HttpClientModule,
     IdeasModule
   ],
-  providers: [ ChartService ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

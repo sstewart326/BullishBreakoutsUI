@@ -1,5 +1,5 @@
 # base image
-FROM node:8.11.1 as bullified-breakouts-webapp
+FROM node:10.9 as bullified-breakouts-webapp
 
 # Create a directory where our app will be placed
 RUN mkdir -p /usr/src/bullified-breakouts/webapp
@@ -17,7 +17,7 @@ RUN npm install
 COPY . /usr/src/bullified-breakouts/webapp
 
 # Expose the port the app runs in
-EXPOSE 4200
+EXPOSE 8080
 
 # Serve the app
 CMD ["npm", "start"]

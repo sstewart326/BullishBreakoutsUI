@@ -5,8 +5,26 @@ import {ChartsComponent} from "../ideas/chart/charts.component";
 @Injectable( {providedIn: 'root'} )
 export class ChartService {
 
+  index = 0
+
   getCharts() {
-    return new Charts(ChartsComponent, [{id: 'chart', chartId: '1tow4LOg'}, {id: 'chart1', chartId: '1tow4LOg'}, {id: 'chart2', chartId: '1tow4LOg'}, {id: 'chart3', chartId: '1tow4LOg'}]);
+    return new Charts(ChartsComponent, [
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
+      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'}
+      ]);
   }
 
 }
