@@ -1,23 +1,27 @@
-import {Component, Input} from "@angular/core";
+import {Component} from "@angular/core";
+import {ChartMeta} from "../../interfaces/chart-meta.interface";
+import {Observable} from "rxjs";
 
 @Component({
   styleUrls: ['./charts.component.css'],
   template: `
-    <div *ngFor="let datum of data">
-      <div [hidden]="shouldHide(datum.id)">
-        <strong class="chart">{{datum.ticker}} - {{datum.date |  date:'MM/dd/yyyy'}}</strong>
-        <div id="{{datum.id}}" class="chart"></div>
+    <div *ngIf="dataObs | async as data">
+      <div *ngFor="let datum of data.meta">
+        <div class="chart-content">
+          <div class="ticker">
+            <h2>SPY</h2>
+          </div>
+          <div class="date">
+            <h4>06/23/2020</h4>
+          </div>
+          <img src="http://localhost:2900/charts/{{datum.id}}" style="width:1000px;height:600px;" class="chart"/>
+        </div>
       </div>
     </div>
   `
 })
 export class ChartsComponent {
-  @Input() data: any[];
-  @Input() chartsLoaded: number
 
-  shouldHide(chartId: string) {
-    const chartNum = +chartId.split("-")[1]
-    return this.chartsLoaded <= chartNum
-  }
+  dataObs: Observable<ChartMeta>;
 
 }

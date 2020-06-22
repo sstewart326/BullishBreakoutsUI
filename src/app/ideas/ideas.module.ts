@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IdeasComponent } from './ideas.component';
-import {DirectivesModule} from "../directives/directives.module";
 import {ChartsComponent} from "./chart/charts.component";
 import {ChartService} from "../services/chart.service";
 
 @NgModule({
   imports: [
-    CommonModule,
-    DirectivesModule
+    CommonModule
   ],
   providers: [ ChartService ],
   declarations: [ IdeasComponent, ChartsComponent ],

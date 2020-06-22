@@ -1,30 +1,16 @@
 import {Injectable} from "@angular/core";
-import {Charts} from "../ideas/chart/charts";
-import {ChartsComponent} from "../ideas/chart/charts.component";
+import {HttpClient} from "@angular/common/http";
+import {ChartMeta} from "../interfaces/chart-meta.interface";
 
 @Injectable( {providedIn: 'root'} )
 export class ChartService {
 
-  index = 0
+  constructor(private http: HttpClient) {
 
-  getCharts() {
-    return new Charts(ChartsComponent, [
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'},
-      {id: `chart-${this.index++}`, chartId: '1tow4LOg', ticker: 'BZX', date: '2019-07-03'}
-      ]);
+  }
+
+  getCharts( page: number ) {
+    return this.http.get<ChartMeta>( `http://localhost:2900/charts/page/${page}`, {responseType: 'json'} )
   }
 
 }

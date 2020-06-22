@@ -1,32 +1,14 @@
 .charts {
   display: block;
-  margin-top: 4em;
+  margin-top: 32px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
 
-#ideas {
-  display:grid;
-  grid-template-columns: 1fr 3fr 1fr;
-}
-
-#ideas .border-section {
-  background-color:rgb(247, 247, 247);
-}
-
 @media(max-width: 700px) {
-  .border-section {
-    display: none;
-  }
-
-  #ideas {
-    display: block;
-    width: 100%;
-  }
-
   .charts {
-    margin-top: 2em;
+    margin-top: 32px;
     width: 97%;
   }
 }

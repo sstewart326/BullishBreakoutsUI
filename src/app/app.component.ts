@@ -1,6 +1,5 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ChartService} from "./services/chart.service";
-import {Charts} from "./ideas/chart/charts";
 
 @Component({
   selector: 'app-root',

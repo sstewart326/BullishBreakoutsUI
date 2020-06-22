@@ -1,15 +1,35 @@
 .chart {
-  height: 400px;
-  width: auto;
-  padding-right: 3em;
-  padding-left: 3em;
-  padding-bottom: 3em;
+  padding: 20px 30px;
+}
+
+.chart-content {
+  background-clip: content-box;
+  padding-top: 5px;
+  padding-bottom: 16px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(247, 247, 247);
+  border-bottom-width: 30px;
+}
+
+.ticker {
+  padding-left: 65px;
+}
+
+.date {
+  padding-left: 50px;
+}
+
+h2 {
+  margin-block-end: 7px
+}
+
+h4 {
+  margin-block-start: 7px;
 }
 
 @media(max-width: 700px) {
 
   .chart {
-    height: 250px;
     padding-right: 1em;
     padding-left: 1em;
     padding-bottom: 1em;

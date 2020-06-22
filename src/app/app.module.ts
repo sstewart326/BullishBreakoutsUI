@@ -5,14 +5,15 @@ import { MatIconModule } from "@angular/material/icon";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import {IdeasModule} from "./ideas/ideas.module";
-import {ChartService} from "./services/chart.service";
+import { IdeasModule } from "./ideas/ideas.module";
+import {ChartsComponent} from "./ideas/chart/charts.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent
   ],
+  entryComponents: [ChartsComponent],
   imports: [
     BrowserModule,
     MatIconModule,
