@@ -1,7 +1,10 @@
 export interface ChartMeta {
   meta: Array<Meta>
+  total: Number
 }
 
 export interface Meta {
-  id: String
+  key: String
+  ticker: String
+  date: String
 }

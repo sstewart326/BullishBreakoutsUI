@@ -7,18 +7,23 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { IdeasModule } from "./ideas/ideas.module";
 import {ChartsComponent} from "./ideas/chart/charts.component";
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavbarComponent
   ],
   entryComponents: [ChartsComponent],
   imports: [
     BrowserModule,
     MatIconModule,
     HttpClientModule,
-    IdeasModule
+    IdeasModule,
+    MatPaginatorModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

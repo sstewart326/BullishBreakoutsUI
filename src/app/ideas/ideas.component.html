@@ -1,3 +1,12 @@
 <div class="charts">
   <ng-template #chartHost></ng-template>
+  <div *ngIf="totalCharts">
+    <mat-paginator id="paginator" [length]="totalCharts"
+                   [pageIndex]="pageIndex"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   (page)="loadNext($event)">
+    </mat-paginator>
+    <div class="idea-padding"></div>
+  </div>
 </div>

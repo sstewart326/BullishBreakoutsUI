@@ -1,22 +1,52 @@
 .chart {
-  padding: 20px 30px;
+  width:100%;
+  height:500px;
+}
+
+.chart-border {
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+}
+
+.content-wrapper {
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.border-wrapper {
+  background-color: white;
+  padding: 5px;
 }
 
 .chart-content {
-  background-clip: content-box;
-  padding-top: 5px;
-  padding-bottom: 16px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(247, 247, 247);
-  border-bottom-width: 30px;
+  background-color: var(--chart-background-color);
+}
+
+.chart-meta {
+  padding-top: 20px;
+  border-bottom: solid white;
+}
+
+.chart-padding {
+  height: 30px;
+  background-color: var(--chart-background-color);
+}
+
+.content-padding {
+  height: 30px;
+  background-color: var(--background-color);
 }
 
 .ticker {
-  padding-left: 65px;
+  text-align: center;
+  color: #eaeaea;
 }
 
 .date {
-  padding-left: 50px;
+  text-align: center;
+  color: #eaeaea;
 }
 
 h2 {
@@ -27,12 +57,19 @@ h4 {
   margin-block-start: 7px;
 }
 
-@media(max-width: 700px) {
+@media(max-width: 800px) {
 
   .chart {
     padding-right: 1em;
     padding-left: 1em;
     padding-bottom: 1em;
+    width:100%;
+    height:300px;
+  }
+
+  .border-wrapper.chart-border.rounded {
+    border: none;
+    background-color: var(--chart-background-color);
   }
 
 }

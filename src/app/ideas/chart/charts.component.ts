@@ -5,23 +5,35 @@ import {Observable} from "rxjs";
 @Component({
   styleUrls: ['./charts.component.css'],
   template: `
-    <div *ngIf="dataObs | async as data">
-      <div *ngFor="let datum of data.meta">
-        <div class="chart-content">
-          <div class="ticker">
-            <h2>SPY</h2>
+    <div *ngIf="chartMeta">
+      <div *ngFor="let datum of chartMeta.meta">
+        <div class="border-wrapper chart-border rounded">
+          <div class="border-wrapper chart-border rounded">
+            <div class="chart-content">
+              <div class="chart-meta">
+                <div class="ticker">
+                  <h2>{{datum.ticker}}</h2>
+                </div>
+                <div class="date">
+                  <h5>{{datum.date}}</h5>
+                </div>
+              </div>
+              <div class="content-wrapper">
+                  <div class="border-wrapper chart-border">
+                    <img src="http://localhost:2900/charts/{{datum.key}}" class="chart chart-border"/>
+                  </div>
+              </div>
+            </div>
+            <div class="chart-padding"></div>
           </div>
-          <div class="date">
-            <h4>06/23/2020</h4>
-          </div>
-          <img src="http://localhost:2900/charts/{{datum.id}}" style="width:1000px;height:600px;" class="chart"/>
         </div>
+        <div class="content-padding"></div>
       </div>
     </div>
   `
 })
 export class ChartsComponent {
 
-  dataObs: Observable<ChartMeta>;
+  chartMeta: ChartMeta;
 
 }

@@ -9,8 +9,8 @@ export class ChartService {
 
   }
 
-  getCharts( page: number ) {
-    return this.http.get<ChartMeta>( `http://localhost:2900/charts/page/${page}`, {responseType: 'json'} )
+  getCharts( page: number, numToFetch: number ) {
+    return this.http.get<ChartMeta>( `http://localhost:2900/charts/page/${page}/fetch/${numToFetch}`, {responseType: 'json'} )
   }
 
 }
