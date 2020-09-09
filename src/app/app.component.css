@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  position: absolute;
 }
 
 #main-content {
@@ -8,7 +9,11 @@ body {
   height: 1080px;
 }
 
-.border-section {
+.border-section-left {
+  background-color: var(--background-color);
+}
+
+.border-section-right {
   background-color: var(--background-color);
 }
 
@@ -26,9 +31,6 @@ center {
 }
 
 @media(max-width: 800px) {
-  .border-section {
-    display: none;
-  }
 
   #main-content {
     display: block;
@@ -37,6 +39,6 @@ center {
 
   #main-section {
     background-color: var(--chart-background-color);
-    border-top-style: none;
+    border-top-width: 30px;
   }
 }

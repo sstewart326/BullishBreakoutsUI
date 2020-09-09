@@ -9,18 +9,24 @@ import { IdeasModule } from "./ideas/ideas.module";
 import {ChartsComponent} from "./ideas/chart/charts.component";
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AboutComponent } from './about/about.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutComponent
   ],
   entryComponents: [ChartsComponent],
   imports: [
     BrowserModule,
+    MatExpansionModule,
     MatIconModule,
+    MatListModule,
     HttpClientModule,
     IdeasModule,
     MatPaginatorModule

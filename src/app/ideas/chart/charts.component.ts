@@ -7,24 +7,22 @@ import {Observable} from "rxjs";
   template: `
     <div *ngIf="chartMeta">
       <div *ngFor="let datum of chartMeta.meta">
-        <div class="border-wrapper chart-border rounded">
-          <div class="border-wrapper chart-border rounded">
-            <div class="chart-content">
+        <div class="content-wrapper">
+          <div class="chart-content">
+            <div class="chart-border">
               <div class="chart-meta">
-                <div class="ticker">
+                <div class="meta-text">
                   <h2>{{datum.ticker}}</h2>
                 </div>
-                <div class="date">
+                <div class="meta-text">
                   <h5>{{datum.date}}</h5>
                 </div>
               </div>
-              <div class="content-wrapper">
-                  <div class="border-wrapper chart-border">
-                    <img src="http://localhost:2900/charts/{{datum.key}}" class="chart chart-border"/>
-                  </div>
+              <div class="chart-wrapper">
+                <img src="http://localhost:2900/charts/{{datum.key}}" class="chart"/>
               </div>
+              <div class="chart-padding"></div>
             </div>
-            <div class="chart-padding"></div>
           </div>
         </div>
         <div class="content-padding"></div>
