@@ -53,7 +53,7 @@ h4 {
   margin-block-start: 7px;
 }
 
-@media(max-width: 800px) {
+@media(max-width: 880px) {
 
   .border-wrapper.chart-border.rounded {
     border: none;

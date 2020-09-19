@@ -16,9 +16,6 @@ RUN npm install
 #copy project into image
 COPY . /usr/src/bullified-breakouts/webapp
 
-# Expose the port the app runs in
-EXPOSE 8080
-
 # Serve the app
 CMD ["npm", "start"]
 

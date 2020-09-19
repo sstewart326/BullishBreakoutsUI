@@ -1,6 +1,7 @@
 body {
   margin: 0;
   position: absolute;
+  width: 100%;
 }
 
 #main-content {
@@ -30,7 +31,7 @@ center {
   width: 50%;
 }
 
-@media(max-width: 800px) {
+@media(max-width: 880px) {
 
   #main-content {
     display: block;

@@ -16,7 +16,7 @@ img {
   vertical-align: unset;
 }
 
-@media(max-width: 850px) {
+@media(max-width: 880px) {
 
   .logo {
     float: none;
