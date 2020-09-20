@@ -11,7 +11,7 @@ export class ChartService {
   }
 
   getCharts( page: number, numToFetch: number ) {
-    return this.http.get<ChartMeta>( `${environment.serviceBase}/charts/page/${page}/fetch/${numToFetch}`, {responseType: 'json'} )
+    return this.http.get<ChartMeta>( `${environment.serviceBase}/api/charts/page/${page}/fetch/${numToFetch}`, {responseType: 'json'} )
   }
 
 }
