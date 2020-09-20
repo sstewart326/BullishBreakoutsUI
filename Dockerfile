@@ -1,21 +1,38 @@
-# base image
-FROM node:10.9 as bullified-breakouts-webapp
+#############
+### build ###
+#############
 
-# Create a directory where our app will be placed
-RUN mkdir -p /usr/src/bullified-breakouts/webapp
+# base image
+FROM node:12.2.0 as build
 
 # set working directory
-WORKDIR /usr/src/bullified-breakouts/webapp
+WORKDIR /app
 
-#copy package and package lock into image
-COPY package*.json /usr/src/bullified-breakouts/webapp/
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-#install dependencies
+# install and cache app dependencies
+COPY package.json /app/package.json
 RUN npm install
 
-#copy project into image
-COPY . /usr/src/bullified-breakouts/webapp
+# add app
+COPY . /app
 
-# Serve the app
-CMD ["npm", "start"]
+# generate build
+RUN ng build --prod=true --output-path=dist
 
+############
+### prod ###
+############
+
+# base image
+FROM nginx:1.16.0-alpine
+
+# copy artifact build from the 'build environment'
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# expose port 80
+EXPOSE 80
+
+# run nginx
+CMD ["nginx", "-g", "daemon off;"]
