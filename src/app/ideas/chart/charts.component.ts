@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {ChartMeta} from "../../interfaces/chart-meta.interface";
+import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
 
 @Component({
@@ -19,7 +20,7 @@ import {Observable} from "rxjs";
                 </div>
               </div>
               <div class="chart-wrapper">
-                <img src="http://localhost:2900/charts/{{datum.key}}" class="chart"/>
+                <img src="${environment.serviceBase}/charts/{{datum.key}}" class="chart"/>
               </div>
               <div class="chart-padding"></div>
             </div>
