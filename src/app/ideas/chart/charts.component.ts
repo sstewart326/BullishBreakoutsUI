@@ -20,7 +20,7 @@ import {Observable} from "rxjs";
                 </div>
               </div>
               <div class="chart-wrapper">
-                <img src="${environment.serviceBase}api/charts/{{datum.key}}" class="chart"/>
+                <img src="${environment.serviceBase}/api/charts/{{datum.key}}" class="chart"/>
               </div>
               <div class="chart-padding"></div>
             </div>
